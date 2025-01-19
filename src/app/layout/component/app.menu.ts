@@ -49,6 +49,7 @@ export class AppMenu {
                 icon: 'pi pi-fw pi-briefcase',
                 routerLink: ['/pages'],
                 items: [
+                    { label: 'Contacts', icon: 'pi pi-fw pi-circle', routerLink: ['/contacts/list'] },
                     {
                         label: 'Landing',
                         icon: 'pi pi-fw pi-globe',
