@@ -18,6 +18,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { TagModule } from 'primeng/tag';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../models/contact.model';
+import { GetAllResponse } from '../../models/getallcontacts.model';
 import { Customer, CustomerService, Representative } from '../service/customer.service';
 import { Product, ProductService } from '../service/product.service';
 
@@ -228,8 +229,11 @@ export class ContactList implements OnInit {
     ngOnInit() {
 
         this.contactService.getAllContacts().subscribe({
-            next: (data: Contact[]) => {
-              this.contacts = data;
+            next: (data: GetAllResponse) => {
+              console.log('Response:', data);
+              this.contacts = data.result;
+              console.log('Contacts:', this.contacts);
+              this.loading = false;
             },
             error: (err) => {
               console.error('Error fetching contacts:', err);
